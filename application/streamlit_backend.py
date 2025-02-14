@@ -66,28 +66,3 @@ class BackEnd:
         df = self.get_cassandra_data(query)
         
         return df
-    
-
-    # def get_stream_total_vehicle_count(self, street_name):
-    #     query = f"""
-    #                 SUM(bicycle) AS total_bicycle, 
-    #                 SUM(bus) AS total_bus, 
-    #                 SUM(car) AS total_car, 
-    #                 SUM(motorcycle) AS total_motorcycle, 
-    #                 SUM(truck) AS total_truck
-    #             FROM traffic_weather_keyspace.stream_traffic_table
-    #             WHERE street = '{street_name}'
-    #             ALLOW FILTERING;
-    #             """
-    #     rows = self._session.execute(query)
-    #     df = pd.DataFrame(rows)
-
-    #     return df
-    
-
-    def get_stream_weather_data(self):
-        rows = self._session.execute("SELECT * FROM traffic_weather_keyspace.stream_weather_table")
-        data = []
-        for row in rows:
-            data.append(row)
-        return data
