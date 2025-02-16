@@ -15,57 +15,46 @@ This project develops a **near real-time streaming pipeline** that processes bot
 ## Project Overview
 ### Directory Structure
 ```
-│   docker-compose.yaml
-│   hadoop.env
-│   kafka_stream.py
-│   README.md
-│   run_batch_job.sh
-│   run_stream_job.sh
-│
-├───application
-│   │   dockerfile
-│   │   main.py
-│   │   requirements.txt
-│   │   streamlit_backend.py
-│   │   streamlit_frontend.py
+├───application                        # Streamlit application folder
+│   │   dockerfile                     # Docker configuration file
+│   │   main.py                        # Main script to run Streamlit
+│   │   requirements.txt               # List of required libraries
+│   │   streamlit_backend.py           
+│   │   streamlit_frontend.py         
 │   │
 │   ├───.streamlit
-│   │       config.toml
-│   │
-│   └───__pycache__
-│           streamlit_backend.cpython-39.pyc
-│           streamlit_frontend.cpython-39.pyc
+│           config.toml                 # Streamlit configuration file
 │
 ├───cql
-│       keyspace_table.cql
+│       keyspace_table.cql              # CQL script for creating keyspace and tables in Cassandra
 │
 ├───images
-│       Architecture.png
+│       Architecture.png                
 │
-├───images_processing
-│   │   images_processor.py
+├───images_processing                    # Image processing module
+│   │   images_processor.py              # Image processing class using YOLOv8
 │   │
-│   ├───screenshot_picture
-│   │       screenshot_cmt8_truongson.png
-│   │       screenshot_hoangvanthu_conghoa.png
-│   │       screenshot_nguyenthaison_phanvantri2.png
-│   │       screenshot_truongchinh_tankitanquy.png
-│   │
-│   └───__pycache__
-│           images_processor.cpython-312.pyc
+│   ├───screenshot_picture               # Captured images from street cameras
+│           screenshot_cmt8_truongson.png
+│           screenshot_hoangvanthu_conghoa.png
+│           screenshot_nguyenthaison_phanvantri2.png
+│           screenshot_truongchinh_tankitanquy.png
 │
-├───spark_script
-│   │   batch_job.py
-│   │   stream_job.py
-│   │   utils_spark.py
-│   │
-│   └───__pycache__
-│           spark_utils.cpython-312.pyc
-│           utils_spark.cpython-312.pyc
+├───spark_script                         # Spark scripts for batch & streaming applications
+│       batch_job.py                     # Spark batch processing script
+│       stream_job.py                    # Spark streaming processing script
+│       utils_spark.py                   # Utility functions for Spark
 │
-└───weather_fetching
-    │   weather_utils.py
-    │
-    └───__pycache__
-            weather_utils.cpython-312.pyc
+├───weather_fetching                     # Weather data fetching module
+│       weather_utils.py                 # Utility functions for fetching weather data from API
+│
+├───docker-compose.yaml                  # Docker Compose configuration file
+├───hadoop.env                           # Hadoop environment configuration
+├───kafka_stream.py                      # Script to run Kafka producer/consumer
+├───run_batch_job.sh                     # Shell script to start the batch job
+├───run_stream_job.sh                    # Shell script to start the streaming job
 ```
+### Data Sources
+This project collects and processes data from the following sources:
+1. **Traffic Camera Data (Ho Chi Minh City)**
+- Traffic images are continously captured from **Ho Chi Minh City's** public surveillance cameras using **Selenium**.
