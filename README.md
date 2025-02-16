@@ -15,13 +15,6 @@ This project develops a **near real-time streaming pipeline** that processes bot
 ## Project Overview
 ### Directory Structure
 ```
-│   docker-compose.yaml
-│   hadoop.env
-│   kafka_stream.py
-│   README.md
-│   run_batch_job.sh
-│   run_stream_job.sh
-│
 ├───application
 │   │   dockerfile
 │   │   main.py
