@@ -31,7 +31,7 @@ class Frontend:
     """------------------------------------ STREAMING -------------------------------------------"""
     def show_streaming_weather(self, weather_df: pd.DataFrame):
         weather_df = weather_df.iloc[-1]
-        st.markdown("### **W.eather**🌈")  
+        st.markdown("### **Weather**🌈")  
         st.write(f"⛅**Description**: {weather_df['weather_description'].title()}") 
         st.write(f"🌡️**Temperature**: {round(weather_df['temperature'], 2)} °C")
         st.write(f"💧**Humidity**: {weather_df['humidity']}%")

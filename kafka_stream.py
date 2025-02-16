@@ -40,7 +40,6 @@ if __name__ == "__main__":
 
         vehicle_count_data = image_processor.implement()
         weather_data = weather_data_fetcher.implement()
-        print(weather_data)
         
         """ Send data to Kafka """
         for data in vehicle_count_data:

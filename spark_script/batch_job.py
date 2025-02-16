@@ -49,7 +49,7 @@ def load_to_HDFS(df: DataFrame, direct: str):
     
     HDFS_PATH = f"hdfs://namenode:9000/{direct}"
     
-    print("Writing to HDFS" + HDFS_PATH + "at time " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "...")
+    print("Writing to HDFS " + HDFS_PATH + " at time " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "...")
     
     try:
         df.write.mode("append") \
