@@ -54,3 +54,5 @@ This project develops a **near real-time streaming pipeline** that processes bot
 ├───run_batch_job.sh                     # Shell script to start the batch job
 ├───run_stream_job.sh                    # Shell script to start the streaming job
 ```
+### Data Sources
+#### Traffic Cameras
