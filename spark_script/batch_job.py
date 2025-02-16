@@ -89,20 +89,20 @@ def aggregate_traffic_to_Cassandra(spark: SparkSession,
     traffic_df.createOrReplaceTempView("traffic_table")
     traffic_df = spark.sql("""
         SELECT street,
-                SUM(bicycle) / COUNT(bicycle) as bicycle_per_observation,
-                MAX(bicycle) as max_bicycle_count,
-                           
-                SUM(car) / COUNT(car) as car_per_observation,
-                MAX(car) as max_car_count,
-                           
-                SUM(motorcycle) / COUNT(motorcycle) as motorcycle_per_observation,
-                MAX(motorcycle) as max_motorcycle_count,
-                           
-                SUM(bus) / COUNT(bus) as bus_per_observation, 
-                MAX(bus) as max_bus_count,
-                           
-                SUM(truck) / COUNT(truck) as truck_per_observation,
-                MAX(truck) as max_truck_count,
+                AVG(bicycle) AS bicycle_per_observation,
+                MAX(bicycle) AS max_bicycle_count,
+                
+                AVG(car) AS car_per_observation,
+                MAX(car) AS max_car_count,
+                
+                AVG(motorcycle) AS motorcycle_per_observation,
+                MAX(motorcycle) AS max_motorcycle_count,
+                
+                AVG(bus) AS bus_per_observation, 
+                MAX(bus) AS max_bus_count,
+                
+                AVG(truck) AS truck_per_observation,
+                MAX(truck) AS max_truck_count,
                            
                 part_of_day,
                 day_of_week,
