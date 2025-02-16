@@ -2,6 +2,7 @@
 ## Table of Contents
 - [Introduction](#Introduction)
 - [Architecture](#Architecture)
+- [Project Overview](#Project-overview)
 ## Introduction
 This project develops a **near real-time streaming pipeline** that processes both **traffic** and **weather data**. The data is streamed through **Kafka** and processed using **Spark** to provide near real-time analysis of traffic flow and weather conditions.
 ## Architecture
@@ -11,3 +12,4 @@ This project develops a **near real-time streaming pipeline** that processes bot
 - **Stream Layer**: Use **Spark Streaming** to consume near real-time data from **Kafka**, process vehicle counts and weather information, and store the results in **Cassandra** for low-latency queries and real-time analytics.
 - **Batch Layer**: Use **Spark** to consume historical traffic and weather data from **Kafka** in scheduled batches (at the end of each day), partition and store it in **HDFS**, then perform aggregations to derive insights before loading the results into **Cassandra** for analysis.
 - **Serving Layer**: Processed traffic and weather data is stored in Cassandra for fast querying, while Streamlit serves as the front-end application, providing an interactive real-time dashboard for monitoring traffic flow, weather conditions, and historical trends.
+## Project Overview
