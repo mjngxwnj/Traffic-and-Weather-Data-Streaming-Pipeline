@@ -55,4 +55,6 @@ This project develops a **near real-time streaming pipeline** that processes bot
 ├───run_stream_job.sh                    # Shell script to start the streaming job
 ```
 ### Data Sources
-#### Traffic Cameras
+This project collects and processes data from the following sources:
+1. **Traffic Camera Data (Ho Chi Minh City)**
+- Traffic images are continously captured from **Ho Chi Minh City's** public surveillance cameras using **Selenium**.
