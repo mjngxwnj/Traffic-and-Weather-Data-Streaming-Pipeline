@@ -57,6 +57,6 @@ This project develops a **near real-time streaming pipeline** that processes bot
 ### Data Sources
 This project collects and processes data from the following sources:
 1. **Traffic Camera Data (Ho Chi Minh City)**
-- Traffic images are continously captured from **Ho Chi Minh City's** public surveillance cameras using **Selenium**.
+- Traffic images are continuosly captured from **Ho Chi Minh City's** public surveillance cameras using **Selenium**.
 
-![Screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/screenshot.png)
+- ![Screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/screenshot.png)
