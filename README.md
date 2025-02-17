@@ -77,3 +77,11 @@ This project collects and processes data from the following sources:
      'execution_time': 2025-02-17 16:02:01
   }
   ```
+2. **OpenWeather API**
+- Weather data is retrieved from the **OpenWeather API**, providing real-time weather conditions for **Ho Chi Minh City**.
+- The collected data includes key meteorological parameters such as:
+  + **Temperature** (°C)
+  + **Humidity** (%)
+  + **Wind Speed** (m/s)
+  + **Weather Condition** (Clear, Cloudy, Rainy,...)
+  + **Timestamp** of the observation
