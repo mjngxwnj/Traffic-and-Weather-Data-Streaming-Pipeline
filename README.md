@@ -79,7 +79,7 @@ This project collects and processes data from the following sources:
   ```
 2. **OpenWeather API**
 - Weather data is retrieved from the **OpenWeather API**, providing real-time weather conditions for **Ho Chi Minh City**.
-  ```
+  ```python
   print(1)
   ```
 - The collected data includes key meteorological parameters such as:
