@@ -97,7 +97,7 @@ This project collects and processes data from the following sources:
   + **latitude**: 10.80418
   + **longitude**: 106.63588
 - The following weather data as a respone from the API:
-  ```
+  ```python
   {
      'main': 'Clouds',
      'description': 'scattered clouds',
