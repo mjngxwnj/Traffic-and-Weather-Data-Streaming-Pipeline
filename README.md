@@ -92,7 +92,7 @@ This project collects and processes data from the following sources:
   + **Timestamp** of the observation
 - For example, if we use the following ```latitude``` and ```longitude``` for **Truong Chinh - Tan Ki Tan Quy Street**:
   + **latitude**: 10.80418
-  + **longitude**: 106.63588
+  + **longitude**: 106.63588  
   The following weather data as a respone from the API:
   ```
   {
