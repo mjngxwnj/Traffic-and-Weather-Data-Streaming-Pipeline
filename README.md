@@ -118,12 +118,12 @@ This project collects and processes data from the following sources:
 - The system supports streaming and batch processing, ensuring flexible data handling.
 ### Stream Layer
 - Data from **Kafka** is consumed to process vehicle counts and weather information in near real-time.
-- New feature and data are created and processed using **Spark Streaming**:
-  + **traffic_density**: Calculate traffic density based on vehicle counts (cars, motorcycles, ...)
-  + **temperature**, **feels_like_temperature**, **temp_min**, **temp_max**: Convert these values from Kelvin (°K) to Celsius (°C).
-  + **wind_direction**: Convert wind degree values (from the weather data) into a categorical feature (e.g., North, South, East, West) to understand wind direction.
-  + **humidex**: The humidex reflects how hot it feels by considering both temperature and humidity, indicating the oppressiveness of heat in humid conditions.
-  + **heat_index**: The heat index combines **temperature** and **humidity** to indicate perceived heat and health risks. 
+- New features are created and processed using Spark Streaming:
+  + **traffic_density**: Calculate based on vehicle counts.
+  + **temperature, feels_like_temperature, temp_min, temp_max**: Convert from Kelvin (°K) to Celsius (°C).
+  + **wind_direction**: Convert wind degree to a categorical feature (e.g., North, South, East, West).
+  + **humidex**: Reflects perceived heat, considering temperature and humidity.
+  + **heat_index**: Combines temperature and humidity to indicate heat and health risks.
 ### Batch Layer
 - 
   
