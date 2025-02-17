@@ -56,7 +56,7 @@ This project develops a **near real-time streaming pipeline** that processes bot
 ```
 ### Data Sources
 This project collects and processes data from the following sources:
-1. **Traffic Camera Data (Ho Chi Minh City)**
+#### 1. **Traffic Camera Data (Ho Chi Minh City)**
 - Traffic images are continuously captured from **Ho Chi Minh City's** public surveillance cameras using **Selenium**.
   ![Screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/screenshot.png)
 - The capture images are then processed using **YOLOv8** and **OpenCV (CV2)** to detect and count vehicles on the streets.
@@ -77,7 +77,7 @@ This project collects and processes data from the following sources:
      'execution_time': 2025-02-17 16:02:01
   }
   ```
-2. **OpenWeather API**
+#### 2. **OpenWeather API**
 - Weather data is retrieved from the **OpenWeather API**, providing real-time weather conditions for **Ho Chi Minh City**.
   ```python
   API_CALL = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={API_KEY}"
