@@ -113,4 +113,11 @@ This project collects and processes data from the following sources:
      'execution_time': '2025-02-17 16:52:31'
   }
   ```
+### Kafka Integration
+- **Kafka** is used to stream both traffic and weather data, providing fault tolerance and enabling real-time processing.
+- The system supports streaming and batch processing, ensuring flexible data handling.
+### Stream Layer
+- Data from **Kafka** is consumed using **Spark Streaming** to process vehicle counts and weather information in near real-time.
+### Batch Layer
+- 
   
