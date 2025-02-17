@@ -63,15 +63,17 @@ This project collects and processes data from the following sources:
   ![Output_screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/output_screenshot.png)
 - After processing, the vehicle count data, including the number of cars, motorcycles, buses and trucks at a given timestamp, is generated.
   ```
-  0: 320x640 6 cars, 15 motorcycles, 267.0ms
+  0: 320x640 2 cars, 17 motorcycles, 267.0ms
   Speed: 4.0ms preprocess, 267.0ms inference, 2.0ms postprocess per image at shape (1, 3, 320, 640)
-  {'street': truongchinh_tankitanquy,
-   'bicycle': 0,
-   'car': 6,
-   'motorcycle': 15  ,
-   'bus': 0,
-   'truck': 0, 
-   'traffic light': 0,
-   'stop sign': 0,
-   'execution_time': 2025-02-17 15:57:38
+  {
+     'street': truongchinh_tankitanquy,
+     'bicycle': 0,
+     'car': 2,
+     'motorcycle': 17,
+     'bus': 1,
+     'truck': 0, 
+     'traffic light': 0,
+     'stop sign': 0,
+     'execution_time': 2025-02-17 16:02:01
+  }
   ```
