@@ -61,3 +61,15 @@ This project collects and processes data from the following sources:
   ![Screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/screenshot.png)
 - The capture images are then processed using **YOLOv8** and **OpenCV (CV2)** to detect and count vehicles on the streets.
   ![Output_screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/output_screenshot.png)
+- After processing, the vehicle count data, including the number of cars, motorcycles, buses and trucks at a given timestamp, is generated.
+  ```
+  {'street': street,
+   'bicycle': 0,
+   'car': 0,
+   'motorcycle': 0,
+   'bus': 0,
+   'truck': 0, 
+   'traffic light': 0,
+   'stop sign': 0,
+   'execution_time': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+  ```
