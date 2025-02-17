@@ -88,7 +88,7 @@ This project collects and processes data from the following sources:
   + **latitude** & **longtitude**: Coordinates of the desired location.
   + **API_KEY**: Personal API key from **OpenWeather**.
 - The collected data includes key meteorological parameters such as:
-  + **Temperature** (°C)
+  + **Temperature** (°K)
   + **Humidity** (%)
   + **Wind Speed** (m/s)
   + **Weather Condition** (Clear, Cloudy, Rainy,...)
@@ -99,5 +99,18 @@ This project collects and processes data from the following sources:
 - The following weather data as a respone from the API:
   ```
   {
+     'main': 'Clouds',
+     'description': 'scattered clouds',
+     'temp': 305.14,
+     'feels_like': 308.77,
+     'temp_min': 305.14,
+     'temp_max': 305.39,
+     'pressure': 1009,
+     'humidity': 55,
+     'wind_speed': 3.13,
+     'wind_deg': 204,
+     'street': 'truongchinh_tankitanquy',
+     'execution_time': '2025-02-17 16:52:31'
+  }
   ```
   
