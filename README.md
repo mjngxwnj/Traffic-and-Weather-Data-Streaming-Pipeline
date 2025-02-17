@@ -82,8 +82,8 @@ This project collects and processes data from the following sources:
   ```python
   API_CALL = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={API_KEY}"
   ```
-  + latitude & longtitude: Coordinates of the desired location.
-  + API_KEY: Personal API key from **OpenWeather**.
+  + **latitude** & **longtitude**: Coordinates of the desired location.
+  + **API_KEY**: Personal API key from **OpenWeather**.
 - The collected data includes key meteorological parameters such as:
   + **Temperature** (°C)
   + **Humidity** (%)
