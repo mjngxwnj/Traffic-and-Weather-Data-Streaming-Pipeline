@@ -117,7 +117,13 @@ This project collects and processes data from the following sources:
 - **Kafka** is used to stream both traffic and weather data, providing fault tolerance and enabling real-time processing.
 - The system supports streaming and batch processing, ensuring flexible data handling.
 ### Stream Layer
-- Data from **Kafka** is consumed using **Spark Streaming** to process vehicle counts and weather information in near real-time.
+- Data from **Kafka** is consumed to process vehicle counts and weather information in near real-time.
+- New feature and data are created and processed using **Spark Streaming**:
+  + **traffic_density**: Calculate traffic density based on vehicle counts (cars, motorcycles, ...)
+  + **temperature**, **feels_like_temperature**, **temp_min**, **temp_max**: Convert these values from Kelvin (°K) to Celsius (°C).
+  + **wind_direction**: Convert wind degree values (from the weather data) into a categorical feature (e.g., North, South, East, West) to understand wind direction.
+  + **humidex**: The humidex reflects how hot it feels by considering both temperature and humidity, indicating the oppressiveness of heat in humid conditions.
+  + **heat_index**: The heat index combines **temperature** and **humidity** to indicate perceived heat and health risks. 
 ### Batch Layer
 - 
   
