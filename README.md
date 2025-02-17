@@ -57,9 +57,11 @@ This project develops a **near real-time streaming pipeline** that processes bot
 ### Data Sources
 This project collects and processes data from the following sources:
 #### 1. **Traffic Camera Data (Ho Chi Minh City)**
-- Traffic images are continuously captured from **Ho Chi Minh City's** public surveillance cameras using **Selenium**.  
+- Traffic images are continuously captured from **Ho Chi Minh City's** public surveillance cameras using **Selenium**.
+  
   ![Screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/screenshot.png)
-- The capture images are then processed using **YOLOv8** and **OpenCV (CV2)** to detect and count vehicles on the streets.  
+- The capture images are then processed using **YOLOv8** and **OpenCV (CV2)** to detect and count vehicles on the streets.
+  
   ![Output_screenshot](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/output_screenshot.png)
 - After processing, the system generates structured data containing vehicle counts at specific timestamps. This includes the number of **bicycle**, **cars**, **motorcycles**, **buses**, and **trucks** detected on each street.
   ```
