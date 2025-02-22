@@ -126,6 +126,7 @@ This project collects and processes data from the following sources:
   + **heat_index**: Combines temperature and humidity to indicate heat and **health risks**.
 - Then, data will be loaded into **Cassandra** for low latency queries and for streaming dashboard application.
 ### Batch Layer
-- The **Batch Layer** processes historical traffic and weather data in scheduled batches (daily) using Spark.
+- The **Batch Layer** processes historical traffic and weather data in scheduled batches (daily) using **Spark**.
 - Data is consumed from **Kafka** at regular intervals (daily) and stored in HDFS with **partitioning** for efficient storage and processing.
-- 
+- Aggregations are performed to derive insights such as **daily traffic trends**, **average weather conditions** in each parts of day,..
+- The results are then loaded into **Cassandra** for fast querying and analysis.
