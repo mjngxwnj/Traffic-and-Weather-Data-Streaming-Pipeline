@@ -133,6 +133,13 @@ This project collects and processes data from the following sources:
 - HDFS is partition by **year**, **month**, **day**:
   
   ![HDFS](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/HDFS.PNG)
+### Serving Layer
+- **Cassandra** stores both **batch** and **stream** data to support fast and direct querying.
+- The data is structured into four tables in **Cassandra**:
+  + batch_traffic_table:
+  + batch_weather_table:
+  + stream_traffic_table:
+  + stream_weather_table:
 - **Cassandra** with two tables **batch_traffic_table** and **batcht_weather_table**:
   ```sql
   SELECT * FROM traffic_weather_keyspace.batch_traffic_table;
