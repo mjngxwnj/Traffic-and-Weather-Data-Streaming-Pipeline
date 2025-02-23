@@ -149,5 +149,6 @@ This project collects and processes data from the following sources:
 | 2025 | 2 | 6 | cmt8_truongson | Evening | 0.01528 | 0.052632 | 2.44822 | Thursday | 1 | 2 | 13 | 29 | 4 | 8.691 | 0.220713 |
 | 2025 | 2 | 6 | cmt8_truongson | Night | 0.004484 | 0.017937 | 1.70852 | Thursday | 1 | 1 | 8 | 14 | 2 | 1.95516 | 0.116592 |
 | 2025 | 2 | 6 | hoangvanthu_conghoa | Evening | 0.050847 | 0.150847 | 7.47119 | Thursday | 2 | 3 | 21 | 27 | 3 | 9.23456 | 0.6789 |
+| ... |
 
 
