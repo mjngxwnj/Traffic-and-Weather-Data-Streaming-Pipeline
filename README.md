@@ -142,22 +142,17 @@ This project collects and processes data from the following sources:
   | 2025 | 2 | 13 | hoangvanthu_conghoa | Evening | 0.02444 | 0.201629 | 7.17108 | Thursday | 1 | 3 | 18 | 30 | 5 | 7.23422 | 1.0835 |
   | 2025 | 2 | 13 | nguyenthaison_phanvantri2 | Evening | 0.095723 | 0.02444 | 3.63951 | Thursday | 3 | 2 | 12 | 38 | 3 | 16.37475 | 0.539715 |
   | 2025 | 2 | 13 | truongchinh_tankitanquy | Evening | 0.026477 | 0.384929 | 5.39919 | Thursday | 2 | 5 | 25 | 44 | 4 | 11.5723 | 0.533605 |
-  | 2025 | 2 | 16 | cmt8_truongson | Evening | 0.057143 | 0.171429 | 4.05714 | Sunday | 1 | 1 | 9 | 31 | 1 | 12.91429 | 0.142857 |
-  | 2025 | 2 | 16 | hoangvanthu_conghoa | Evening | 0 | 0.2 | 8.31429 | Sunday | 0 | 1 | 16 | 25 | 3 | 9.11429 | 0.742857 |
-  | 2025 | 2 | 16 | nguyenthaison_phanvantri2 | Evening | 0 | 0.028571 | 4.4 | Sunday | 0 | 1 | 10 | 34 | 2 | 18.31429 | 0.2 |
-  | 2025 | 2 | 16 | truongchinh_tankitanquy | Evening | 0.028571 | 0.771429 | 8.17143 | Sunday | 1 | 4 | 19 | 39 | 3 | 14.85714 | 1.17143 |
-  | 2025 | 2 | 6 | cmt8_truongson | Evening | 0.01528 | 0.052632 | 2.44822 | Thursday | 1 | 2 | 13 | 29 | 4 | 8.691 | 0.220713 |
-  | 2025 | 2 | 6 | cmt8_truongson | Night | 0.004484 | 0.017937 | 1.70852 | Thursday | 1 | 1 | 8 | 14 | 2 | 1.95516 | 0.116592 |
-  | 2025 | 2 | 6 | hoangvanthu_conghoa | Evening | 0.050847 | 0.150847 | 7.47119 | Thursday | 2 | 3 | 21 | 27 | 3 | 9.23456 | 0.6789 |
   | ... |
 
+  ```cql
+  SELECT * FROM traffic_weather_keyspace.batch_weather_table;
+  ```
   | Year | Month | Day | Street | Part of Day | Avg Feels Like Temperature | Avg Heat Index | Avg Humidex | Avg Humidity | Avg Pressure | Avg Temperature | Avg Wind Speed | Day of Week | Max Heat Index | Max Humidex | Max Humidity | Max Pressure | Max Temperature | Max Wind Speed | Min Heat Index | Min Humidex | Min Humidity | Min Pressure | Min Temperature | Min Wind Speed |
   |------|-------|-----|---------------------------|-------------|----------------------------|----------------|-------------|--------------|--------------|-----------------|----------------|-------------|----------------|-------------|--------------|--------------|-----------------|----------------|----------------|-------------|--------------|--------------|-----------------|----------------|
   | 2025 | 2 | 13 | cmt8_truongson | Evening | 27.03657 | 28.46759 | 33.75731 | 83.25355 | 1012.30829 | 26.31523 | 3.34345 | Thursday | 29.36735 | 34.16413 | 84 | 1013 | 26.72 | 3.6 | 28.0974 | 33.57085 | 82 | 1012 | 26.13 | 3.09 |
   | 2025 | 2 | 13 | hoangvanthu_conghoa | Evening | 27.03904 | 28.40921 | 33.73001 | 83.28803 | 1012.34076 | 26.28798 | 3.34966 | Thursday | 29.27495 | 34.14415 | 84 | 1013 | 26.70001 | 3.6 | 28.03099 | 33.56084 | 82 | 1012 | 26.11999 | 3.09 |
   | 2025 | 2 | 13 | nguyenthaison_phanvantri2 | Evening | 26.37361 | 28.37168 | 33.71249 | 83.28803 | 1012.68152 | 26.27047 | 3.34345 | Thursday | 30.09914 | 34.47249 | 84 | 1013 | 27.02999 | 3.6 | 27.98829 | 33.54086 | 82 | 1012 | 26.1 | 3.09 |
   | 2025 | 2 | 13 | truongchinh_tankitanquy | Evening | 28.61871 | 29.31873 | 34.07823 | 85.81541 | 1012.29816 | 26.64035 | 3.34345 | Thursday | 30.00318 | 34.43251 | 94 | 1013 | 26.99002 | 3.6 | 27.95119 | 33.40446 | 83 | 1012 | 25.98001 | 3.09 |
-  | 2025 | 2 | 16 | cmt8_truongson | Evening | 30.70648 | 30.70593 | 35.62416 | 68 | 1012 | 28.15703 | 5.66 | Sunday | 31.12088 | 35.84713 | 68 | 1012 | 28.38 | 5.66 | 30.09734 | 35.29714 | 68 | 1012 | 27.83001 | 5.66 |
   | ... |
 
 
