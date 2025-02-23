@@ -130,7 +130,8 @@ This project collects and processes data from the following sources:
 - Data is consumed from **Kafka** at regular daily intervals and stored in HDFS with **partitioning** for efficient storage and processing.
 - Aggregations are performed to derive insights such as **daily traffic trends**, **average weather conditions** for different parts of the day.
 - The results are then loaded into **Cassandra** for fast querying and analysis.
-- HDFS is partition by **year**, **month**, **day**:  
+- HDFS is partition by **year**, **month**, **day**:
+  
   ![HDFS](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/HDFS.PNG)
 - **Cassandra** with two tables **batch_traffic_table** and **batcht_weather_table**:
   ```sql
