@@ -136,7 +136,7 @@ This project collects and processes data from the following sources:
   ```sql
   SELECT * FROM traffic_weather_keyspace.batch_traffic_table;
   ```
-  | Year | Month | Day | Street | Part of Day | Bicycle per Obs | Bus per Obs | Car per Obs | Day of Week | Max Bicycle Count | Max Bus Count | Max Car Count | Max Motorcycle Count | Max Truck Count | Motorcycle per Obs | Truck per Obs |
+| Year | Month | Day | Street | Part of Day | Bicycle per Obs | Bus per Obs | Car per Obs | Day of Week | Max Bicycle Count | Max Bus Count | Max Car Count | Max Motorcycle Count | Max Truck Count | Motorcycle per Obs | Truck per Obs |
 |------|-------|-----|----------------------------|-------------|-----------------|-------------|-------------|-------------|-------------------|--------------|--------------|----------------------|--------------|------------------|---------------|
 | 2025 | 2 | 13 | cmt8_truongson | Evening | 0.01222 | 0.171079 | 2.91039 | Thursday | 2 | 4 | 11 | 45 | 3 | 10.18126 | 0.183299 |
 | 2025 | 2 | 13 | hoangvanthu_conghoa | Evening | 0.02444 | 0.201629 | 7.17108 | Thursday | 1 | 3 | 18 | 30 | 5 | 7.23422 | 1.0835 |
@@ -149,4 +149,5 @@ This project collects and processes data from the following sources:
 | 2025 | 2 | 6 | cmt8_truongson | Evening | 0.01528 | 0.052632 | 2.44822 | Thursday | 1 | 2 | 13 | 29 | 4 | 8.691 | 0.220713 |
 | 2025 | 2 | 6 | cmt8_truongson | Night | 0.004484 | 0.017937 | 1.70852 | Thursday | 1 | 1 | 8 | 14 | 2 | 1.95516 | 0.116592 |
 | 2025 | 2 | 6 | hoangvanthu_conghoa | Evening | 0.050847 | 0.150847 | 7.47119 | Thursday | 2 | 3 | 21 | 27 | 3 | 9.23456 | 0.6789 |
+
 
