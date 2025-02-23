@@ -127,6 +127,12 @@ This project collects and processes data from the following sources:
 - Then, data will be loaded into **Cassandra** for low latency queries and for streaming dashboard application.
 ### Batch Layer
 - The **Batch Layer** processes historical traffic and weather data in scheduled batches (daily) using **Spark**.
-- Data is consumed from **Kafka** at regular intervals (daily) and stored in HDFS with **partitioning** for efficient storage and processing.
-- Aggregations are performed to derive insights such as **daily traffic trends**, **average weather conditions** in each parts of day,..
+- Data is consumed from **Kafka** at regular daily intervals and stored in HDFS with **partitioning** for efficient storage and processing.
+- Aggregations are performed to derive insights such as **daily traffic trends**, **average weather conditions** for different parts of the day.
 - The results are then loaded into **Cassandra** for fast querying and analysis.
+- HDFS is partition by **year**, **month**, **day**:
+  ![HDFS]()
+- **Cassandra** with two tables **batch_traffic_table** and **batcht_weather_table**:
+  ```sql
+  SELECT * FROM traffic_weather_keyspace.batch_traffic_table;
+  ```
