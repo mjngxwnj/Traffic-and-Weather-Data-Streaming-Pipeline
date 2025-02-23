@@ -136,38 +136,17 @@ This project collects and processes data from the following sources:
   ```sql
   SELECT * FROM traffic_weather_keyspace.batch_traffic_table;
   ```
-  <pre>
-  year | month | day | street                    | part_of_day | bicycle_per_observation | bus_per_observation | car_per_observation | day_of_week | max_bicycle_count max_bus_count | max_car_count | max_motorcycle_count | max_truck_count | motorcycle_per_observation | truck_per_observation
-------+-------+-----+---------------------------+-------------+-------------------------+---------------------+---------------------+-------------+-------------------+---------------+---------------+----------------------+-----------------+----------------------------+-----------------------
- 2025 |     2 |  13 |            cmt8_truongson |     evening |                 0.01222 | 0.171079 |             2.91039 |    Thursday |                 2 |             4 |            11 |   
-                45 |               3 |                   10.18126 |              0.183299
- 2025 |     2 |  13 |       hoangvanthu_conghoa |     evening |                 0.02444 |
-0.201629 |             7.17108 |    Thursday |                 1 |             3 |            18 |   
-                30 |               5 |                    7.23422 |                1.0835
- 2025 |     2 |  13 | nguyenthaison_phanvantri2 |     evening |                0.095723 |
- 0.02444 |             3.63951 |    Thursday |                 3 |             2 |            12 |   
-                38 |               3 |                   16.37475 |              0.539715
- 2025 |     2 |  13 |   truongchinh_tankitanquy |     evening |                0.026477 |
-0.384929 |             5.39919 |    Thursday |                 2 |             5 |            25 |   
-                44 |               4 |                    11.5723 |              0.533605
- 2025 |     2 |  16 |            cmt8_truongson |     evening |                0.057143 |
-0.171429 |             4.05714 |      Sunday |                 1 |             1 |             9 |   
-                31 |               1 |                   12.91429 |              0.142857
- 2025 |     2 |  16 |       hoangvanthu_conghoa |     evening |                       0 |
-     0.2 |             8.31429 |      Sunday |                 0 |             1 |            16 |   
-                25 |               3 |                    9.11429 |              0.742857
- 2025 |     2 |  16 | nguyenthaison_phanvantri2 |     evening |                       0 |
-0.028571 |                 4.4 |      Sunday |                 0 |             1 |            10 |   
-                34 |               2 |                   18.31429 |                   0.2
- 2025 |     2 |  16 |   truongchinh_tankitanquy |     evening |                0.028571 |
-0.771429 |             8.17143 |      Sunday |                 1 |             4 |            19 |   
-                39 |               3 |                   14.85714 |               1.17143
- 2025 |     2 |   6 |            cmt8_truongson |     evening |                 0.01528 |
-0.052632 |             2.44822 |    Thursday |                 1 |             2 |            13 |   
-                29 |               4 |                      8.691 |              0.220713
- 2025 |     2 |   6 |            cmt8_truongson |       night |                0.004484 |
-0.017937 |             1.70852 |    Thursday |                 1 |             1 |             8 |   
-                14 |               2 |                    1.95516 |              0.116592
- 2025 |     2 |   6 |       hoangvanthu_conghoa |     evening |                0.050847 |
-0.150847 |             7.47119 |    Thursday |                 2 |             3 |            21 |
-<pre>
+  | Year | Month | Day | Street                      | Part of Day | Bicycle per Obs | Bus per Obs | Car per Obs | Day of Week | Max Bicycle Count | Max Bus Count | Max Car Count | Max Motorcycle Count | Max Truck Count | Motorcycle per Obs | Truck per Obs |
+|------|-------|-----|----------------------------|-------------|-----------------|-------------|-------------|-------------|-------------------|--------------|--------------|----------------------|--------------|------------------|---------------|
+| 2025 | 2     | 13  | cmt8_truongson             | Evening     | 0.01222         | 0.171079    | 2.91039     | Thursday    | 2                 | 4            | 11           | 45                   | 3            | 10.18126         | 0.183299      |
+| 2025 | 2     | 13  | hoangvanthu_conghoa        | Evening     | 0.02444         | 0.201629    | 7.17108     | Thursday    | 1                 | 3            | 18           | 30                   | 5            | 7.23422          | 1.0835        |
+| 2025 | 2     | 13  | nguyenthaison_phanvantri2  | Evening     | 0.095723        | 0.02444     | 3.63951     | Thursday    | 3                 | 2            | 12           | 38                   | 3            | 16.37475         | 0.539715      |
+| 2025 | 2     | 13  | truongchinh_tankitanquy    | Evening     | 0.026477        | 0.384929    | 5.39919     | Thursday    | 2                 | 5            | 25           | 44                   | 4            | 11.5723          | 0.533605      |
+| 2025 | 2     | 16  | cmt8_truongson             | Evening     | 0.057143        | 0.171429    | 4.05714     | Sunday      | 1                 | 1            | 9            | 31                   | 1            | 12.91429         | 0.142857      |
+| 2025 | 2     | 16  | hoangvanthu_conghoa        | Evening     | 0               | 0.2         | 8.31429     | Sunday      | 0                 | 1            | 16           | 25                   | 3            | 9.11429          | 0.742857      |
+| 2025 | 2     | 16  | nguyenthaison_phanvantri2  | Evening     | 0               | 0.028571    | 4.4         | Sunday      | 0                 | 1            | 10           | 34                   | 2            | 18.31429         | 0.2           |
+| 2025 | 2     | 16  | truongchinh_tankitanquy    | Evening     | 0.028571        | 0.771429    | 8.17143     | Sunday      | 1                 | 4            | 19           | 39                   | 3            | 14.85714         | 1.17143       |
+| 2025 | 2     | 6   | cmt8_truongson             | Evening     | 0.01528         | 0.052632    | 2.44822     | Thursday    | 1                 | 2            | 13           | 29                   | 4            | 8.691            | 0.220713      |
+| 2025 | 2     | 6   | cmt8_truongson             | Night       | 0.004484        | 0.017937    | 1.70852     | Thursday    | 1                 | 1            | 8            | 14                   | 2            | 1.95516          | 0.116592      |
+| 2025 | 2     | 6   | hoangvanthu_conghoa        | Evening     | 0.050847        | 0.150847    | 7.47119     | Thursday    | 2                 | 3            | 21           |                      |              |                   |               |
+
