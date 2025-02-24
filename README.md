@@ -231,6 +231,12 @@ Batch: 38
   + **Weather Insights**: Average temperature, humidity, and wind speed by time of day.
 ## Getting Started
 - Clone this reposistory:
+  ```bash
+  git clone https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline.git
   ```
-  git clone
+- Build docker images & run the containers:
   ```
+  docker-compose up
+  ```
+- The running docker containers will look like this:
+  [picture]
