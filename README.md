@@ -125,6 +125,32 @@ This project collects and processes data from the following sources:
   + **humidex**: Reflects perceived heat, considering temperature and humidity.
   + **heat_index**: Combines temperature and humidity to indicate heat and **health risks**.
 - Then, data will be loaded into **Cassandra** for low latency queries and for streaming dashboard application.
+  stream_traffic_table:
+  ```
+  -------------------------------------------
+  Batch: 1
+  -------------------------------------------
+  +--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+  |              street|bicycle|car|motorcycle|bus|truck|traffic_light|stop_sign|     execution_time|traffic_density|execution_hour|
+  +--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+  |nguyenthaison_pha...|      0|  8|        11|  0|    0|            0|        0|2025-02-24 16:22:19|         medium|            16|
+  | hoangvanthu_conghoa|      0| 11|        14|  0|    0|            0|        0|2025-02-24 16:22:34|         medium|            16|
+  |truongchinh_tanki...|      0| 11|         3|  0|    0|            1|        0|2025-02-24 16:22:40|         medium|            16|
+  |      cmt8_truongson|      0| 11|         9|  0|    0|            0|        0|2025-02-24 16:22:45|         medium|            16|
+  +--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+  
+  -------------------------------------------
+  Batch: 2
+  -------------------------------------------
+  +--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+  |              street|bicycle|car|motorcycle|bus|truck|traffic_light|stop_sign|     execution_time|traffic_density|execution_hour|
+  +--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+  |nguyenthaison_pha...|      0|  3|        20|  0|    0|            0|        0|2025-02-24 16:22:50|            low|            16|
+  | hoangvanthu_conghoa|      0|  6|         6|  0|    1|            1|        0|2025-02-24 16:22:54|         medium|            16|
+  |truongchinh_tanki...|      0|  6|        30|  0|    0|            0|        0|2025-02-24 16:22:59|         medium|            16|
+  |      cmt8_truongson|      0| 10|        14|  0|    0|            0|        0|2025-02-24 16:23:04|         medium|            16|
+  +--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+  ...
 ### Batch Layer
 - The **Batch Layer** processes historical traffic and weather data in scheduled batches (daily) using **Spark**.
 - Data is consumed from **Kafka** at regular daily intervals and stored in HDFS with **partitioning** for efficient storage and processing.
@@ -136,11 +162,11 @@ This project collects and processes data from the following sources:
 ### Serving Layer
 - **Cassandra** stores both **batch** and **stream** data to support fast and direct querying.
 - The data is structured into four tables in **Cassandra**:
-  + batch_traffic_table:
-  + batch_weather_table:
-  + stream_traffic_table:
-  + stream_weather_table:
-- **Cassandra** with two tables **batch_traffic_table** and **batcht_weather_table**:
+  + stream_traffic_table: Stores real-time traffic data, continuously updated from **Kafka** and **Spark Streaming**.
+  + stream_weather_table: Stores real-time weather data for immediate analysis.
+  + batch_traffic_table: Stores aggregated traffic data from the batch processing layer, updated daily.
+  + batch_weather_table: Contains daily aggregated weather data, such as **temperature**, **humidity**, **windspeed**,..
+  
   ```sql
   SELECT * FROM traffic_weather_keyspace.batch_traffic_table;
   ```
