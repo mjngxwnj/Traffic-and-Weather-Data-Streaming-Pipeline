@@ -239,4 +239,5 @@ Batch: 38
   docker-compose up
   ```
 - The running docker containers will look like this:
-  [picture]
+  
+  [docker](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/docker.PNG)
