@@ -53,6 +53,7 @@ def process_kafka_traffic_data(spark: SparkSession,
                               .option("table", "stream_traffic_table") \
                               .option("checkpointLocation", "checkpoints_traffic") \
                               .start()
+
     return traffic_query
     
 

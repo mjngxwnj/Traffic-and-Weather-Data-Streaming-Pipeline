@@ -174,7 +174,7 @@ class Frontend:
                     self.plot_piechart_vehicle(traffic_df)
                 self.plot_weather_trends(batch_weather_df) 
                 self.plot_traffic_trends(batch_traffic_df)
-                time.sleep(2)
+                time.sleep(5)
 
             #rerun page
             if time.time() - st.session_state["last_update"] > 60:
