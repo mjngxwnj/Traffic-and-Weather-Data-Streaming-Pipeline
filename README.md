@@ -124,8 +124,7 @@ This project collects and processes data from the following sources:
   + **wind_direction**: Convert wind degree to a categorical feature (e.g., North, South, East, West).
   + **humidex**: Reflects perceived heat, considering temperature and humidity.
   + **heat_index**: Combines temperature and humidity to indicate heat and **health risks**.
-- Then, data will be loaded into **Cassandra** for low latency queries and for streaming dashboard application.
-  stream_traffic_table:
+  ```stream_traffic_table```:
   ```
   -------------------------------------------
   Batch: 1
