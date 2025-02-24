@@ -218,8 +218,8 @@ Batch: 38
   | 2025 | 2 | 13 | nguyenthaison_phanvantri2 | Evening | 26.37361 | 28.37168 | 33.71249 | 83.28803 | 1012.68152 | 26.27047 | 3.34345 | Thursday | 30.09914 | 34.47249 | 84 | 1013 | 27.02999 | 3.6 | 27.98829 | 33.54086 | 82 | 1012 | 26.1 | 3.09 |
   | 2025 | 2 | 13 | truongchinh_tankitanquy | Evening | 28.61871 | 29.31873 | 34.07823 | 85.81541 | 1012.29816 | 26.64035 | 3.34345 | Thursday | 30.00318 | 34.43251 | 94 | 1013 | 26.99002 | 3.6 | 27.95119 | 33.40446 | 83 | 1012 | 25.98001 | 3.09 |
   | ... |
-- **Streamlit** for near real-time and batch Dashboard: **Streamlit** is used to create interative dashboard for both **batch** and **real-time** data visualization.
-- **Dashboard feature**:
+- **Dashboard with Streamlit**:
+  + **Streamlit** is used to create interative dashboard for both **batch** and **real-time** data visualization.
   + **Near real-time Traffic** & **Weather Monitoring** with automatic updates every 5 seconds.
   + Traffic Analysis: Trend by time of day, day of the week, and location.
   + Weather Insights: Average temperature, humidity, and wind speed by time of day.
