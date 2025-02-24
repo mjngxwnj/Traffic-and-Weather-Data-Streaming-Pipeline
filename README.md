@@ -3,6 +3,12 @@
 - [Introduction](#Introduction)
 - [Architecture](#Architecture)
 - [Project Overview](#Project-overview)
+  - [Directory Structure](#Directory-Structure)
+  - [Data Sources](#Data-Sources)
+  - [Kafka Integration](#Kafka-Integration)
+  - [Stream Layer](#Stream-Layer)
+  - [Batch Layer](#Stream-Layer)
+  - [Serving Layer](#Stream-Layer)
 ## Introduction
 This project develops a **near real-time streaming pipeline** that processes both **traffic** and **weather data**. The data is streamed through **Kafka** and processed using **Spark** to provide near real-time analysis of traffic flow and weather conditions.
 ## Architecture
@@ -124,25 +130,89 @@ This project collects and processes data from the following sources:
   + **wind_direction**: Convert wind degree to a categorical feature (e.g., North, South, East, West).
   + **humidex**: Reflects perceived heat, considering temperature and humidity.
   + **heat_index**: Combines temperature and humidity to indicate heat and **health risks**.
-- Then, data will be loaded into **Cassandra** for low latency queries and for streaming dashboard application.
+    
+```stream_traffic_table```:
+```
+-------------------------------------------
+Batch: 1
+-------------------------------------------
++--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+|              street|bicycle|car|motorcycle|bus|truck|traffic_light|stop_sign|     execution_time|traffic_density|execution_hour|
++--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+|nguyenthaison_pha...|      0|  8|        11|  0|    0|            0|        0|2025-02-24 16:22:19|         medium|            16|
+| hoangvanthu_conghoa|      0| 11|        14|  0|    0|            0|        0|2025-02-24 16:22:34|         medium|            16|
+|truongchinh_tanki...|      0| 11|         3|  0|    0|            1|        0|2025-02-24 16:22:40|         medium|            16|
+|      cmt8_truongson|      0| 11|         9|  0|    0|            0|        0|2025-02-24 16:22:45|         medium|            16|
++--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+
+...
+
+-------------------------------------------
+Batch: 43
+-------------------------------------------
++--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+|              street|bicycle|car|motorcycle|bus|truck|traffic_light|stop_sign|     execution_time|traffic_density|execution_hour|
++--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+|nguyenthaison_pha...|      0|  5|        26|  0|    0|            0|        0|2025-02-24 16:32:57|         medium|            16|
+| hoangvanthu_conghoa|      0| 13|        18|  1|    1|            0|        0|2025-02-24 16:33:01|           high|            16|
+|truongchinh_tanki...|      0|  4|        25|  0|    1|            0|        0|2025-02-24 16:33:05|         medium|            16|
+|      cmt8_truongson|      0|  3|        24|  0|    0|            0|        0|2025-02-24 16:33:09|            low|            16|
++--------------------+-------+---+----------+---+-----+-------------+---------+-------------------+---------------+--------------+
+```
+```stream_weather_table```:
+```
+-------------------------------------------
+Batch: 1
+-------------------------------------------
++--------------------+------------+-------------------+-----------------+----------------------+-----------------+-----------------+--------+--------+----------+--------+-------------------+--------------+---------------+--------------+------------------+-----------------+--------------+
+|              street|weather_main|weather_description|      temperature|feels_like_temperature| temp_min        | temp_max        |pressure|humidity|wind_speed|wind_deg|     execution_time|humidity_level|thermal_comfort|wind_direction|           humidex|       heat_index|execution_hour|
++--------------------+------------+-------------------+-----------------+----------------------+-----------------+-----------------+--------+--------+----------+--------+-------------------+--------------+---------------+--------------+------------------+-----------------+--------------+
+|nguyenthaison_pha...|      Clouds|   scattered clouds|33.32000122070315|     38.55001220703127|32.95998535156252|33.32000122070315|  1010.0|    55.0|      4.12|   100.0|2025-02-24 16:27:30|        medium|           hot |             E|40.808509913328535|38.54975901887922|            16|
+| hoangvanthu_conghoa|      Clouds|   scattered clouds|33.36000976562502|      38.6400085449219|32.99001464843752|33.36000976562502|  1010.0|    55.0|      4.12|   100.0|2025-02-24 16:27:30|        medium|           hot |             E| 40.84851845825041|38.64328366151326|            16|
+|truongchinh_tanki...|      Clouds|   scattered clouds|32.98000488281252|     36.83001098632815|32.98000488281252|33.33999023437502|  1010.0|    52.0|      4.12|   100.0|2025-02-24 16:27:30|        medium|           hot |             E| 40.47345195402629| 36.8346746480809|            16|
+|      cmt8_truongson|      Clouds|   scattered clouds| 33.3799987792969|     38.68999633789065| 33.0100036621094| 33.3799987792969|  1010.0|    55.0|      4.12|   100.0|2025-02-24 16:27:30|        medium|           hot |             E|40.868507471922285|38.69012844583227|            16|
++--------------------+------------+-------------------+-----------------+----------------------+-----------------+-----------------+--------+--------+----------+--------+-------------------+--------------+---------------+--------------+------------------+-----------------+--------------+
+
+...
+
+-------------------------------------------
+Batch: 38
+-------------------------------------------
++--------------------+------------+-------------------+-----------------+----------------------+-----------------+-----------------+--------+--------+----------+--------+-------------------+--------------+---------------+--------------+------------------+-----------------+--------------+
+|              street|weather_main|weather_description|      temperature|feels_like_temperature| temp_min        | temp_max        |pressure|humidity|wind_speed|wind_deg|     execution_time|humidity_level|thermal_comfort|wind_direction|           humidex|       heat_index|execution_hour|
++--------------------+------------+-------------------+-----------------+----------------------+-----------------+-----------------+--------+--------+----------+--------+-------------------+--------------+---------------+--------------+------------------+-----------------+--------------+
+|nguyenthaison_pha...|      Clouds|   scattered clouds|33.32000122070315|     38.55001220703127|32.95998535156252|33.32000122070315|  1010.0|    55.0|      4.12|   100.0|2025-02-24 16:31:53|        medium|           hot |             E|40.808509913328535|38.54975901887922|            16|
+| hoangvanthu_conghoa|      Clouds|   scattered clouds|33.33999023437502|     38.93999633789065|32.96999511718752|33.33999023437502|  1010.0|    56.0|      4.92|    69.0|2025-02-24 16:31:53|        medium|           hot |             E| 40.82685317124772|38.94157476233778|            16|
+|truongchinh_tanki...|      Clouds|   scattered clouds|32.98000488281252|     36.83001098632815|32.98000488281252|33.33999023437502|  1010.0|    52.0|      4.92|    69.0|2025-02-24 16:31:53|        medium|           hot |             E| 40.47345195402629| 36.8346746480809|            16|
+|      cmt8_truongson|      Clouds|   scattered clouds| 33.3799987792969|     39.04000244140627| 33.0100036621094| 33.3799987792969|  1011.0|    56.0|      4.12|   100.0|2025-02-24 16:31:53|        medium|           hot |             E|40.866861716169595| 39.0374753781848|            16|
++--------------------+------------+-------------------+------------------+-----------------------+------------------+------------------+--------+--------+----------+--------+-------------------+--------------+---------------+--------------+------------------+------------------+--------------+
+```
 ### Batch Layer
 - The **Batch Layer** processes historical traffic and weather data in scheduled batches (daily) using **Spark**.
 - Data is consumed from **Kafka** at regular daily intervals and stored in HDFS with **partitioning** for efficient storage and processing.
 - Aggregations are performed to derive insights such as **daily traffic trends**, **average weather conditions** for different parts of the day.
 - The results are then loaded into **Cassandra** for fast querying and analysis.
 - HDFS is partition by **year**, **month**, **day**:
-  ![HDFS]()
-- **Cassandra** with two tables **batch_traffic_table** and **batcht_weather_table**:
+  
+  ![HDFS](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/HDFS.PNG)
+### Serving Layer
+- **Cassandra** stores both **batch** and **stream** data to support fast and direct querying.
+- The data is structured into four tables in **Cassandra**:
+  + stream_traffic_table: Stores real-time traffic data, continuously updated from **Kafka** and **Spark Streaming**.
+  + stream_weather_table: Stores real-time weather data for immediate analysis.
+  + batch_traffic_table: Stores aggregated traffic data from the batch processing layer, updated daily.
+  + batch_weather_table: Contains daily aggregated weather data, such as **temperature**, **humidity**, **windspeed**,..
+  
   ```sql
   SELECT * FROM traffic_weather_keyspace.batch_traffic_table;
   ```
-| Year | Month | Day | Street | Part of Day | Bicycle per Observation | Bus per Observation | Car per Observation | Day of Week | Max Bicycle Count | Max Bus Count | Max Car Count | Max Motorcycle Count | Max Truck Count | Motorcycle per Observation | Truck per Observation |
-|------|-------|-----|--------|-------------|-------------------------|---------------------|---------------------|-------------|-------------------|--------------|--------------|----------------------|----------------|--------------------------|----------------------|
-  | 2025 | 2 | 13 | cmt8_truongson | Evening | 0.01222 | 0.171079 | 2.91039 | Thursday | 2 | 4 | 11 | 45 | 3 | 10.18126 | 0.183299 |
-  | 2025 | 2 | 13 | hoangvanthu_conghoa | Evening | 0.02444 | 0.201629 | 7.17108 | Thursday | 1 | 3 | 18 | 30 | 5 | 7.23422 | 1.0835 |
-  | 2025 | 2 | 13 | nguyenthaison_phanvantri2 | Evening | 0.095723 | 0.02444 | 3.63951 | Thursday | 3 | 2 | 12 | 38 | 3 | 16.37475 | 0.539715 |
-  | 2025 | 2 | 13 | truongchinh_tankitanquy | Evening | 0.026477 | 0.384929 | 5.39919 | Thursday | 2 | 5 | 25 | 44 | 4 | 11.5723 | 0.533605 |
-  | ... |
+  | Year | Month | Day | Street | Part of Day | Bicycle per Observation | Bus per Observation | Car per Observation | Day of Week | Max Bicycle Count | Max Bus Count | Max Car Count | Max Motorcycle Count | Max Truck Count | Motorcycle per Observation | Truck per Observation |
+  |------|-------|-----|--------|-------------|-------------------------|---------------------|---------------------|-------------|-------------------|--------------|--------------|----------------------|----------------|--------------------------|----------------------|
+    | 2025 | 2 | 13 | cmt8_truongson | Evening | 0.01222 | 0.171079 | 2.91039 | Thursday | 2 | 4 | 11 | 45 | 3 | 10.18126 | 0.183299 |
+    | 2025 | 2 | 13 | hoangvanthu_conghoa | Evening | 0.02444 | 0.201629 | 7.17108 | Thursday | 1 | 3 | 18 | 30 | 5 | 7.23422 | 1.0835 |
+    | 2025 | 2 | 13 | nguyenthaison_phanvantri2 | Evening | 0.095723 | 0.02444 | 3.63951 | Thursday | 3 | 2 | 12 | 38 | 3 | 16.37475 | 0.539715 |
+    | 2025 | 2 | 13 | truongchinh_tankitanquy | Evening | 0.026477 | 0.384929 | 5.39919 | Thursday | 2 | 5 | 25 | 44 | 4 | 11.5723 | 0.533605 |
+    | ... |
 
   ```cql
   SELECT * FROM traffic_weather_keyspace.batch_weather_table;
@@ -154,7 +224,19 @@ This project collects and processes data from the following sources:
   | 2025 | 2 | 13 | nguyenthaison_phanvantri2 | Evening | 26.37361 | 28.37168 | 33.71249 | 83.28803 | 1012.68152 | 26.27047 | 3.34345 | Thursday | 30.09914 | 34.47249 | 84 | 1013 | 27.02999 | 3.6 | 27.98829 | 33.54086 | 82 | 1012 | 26.1 | 3.09 |
   | 2025 | 2 | 13 | truongchinh_tankitanquy | Evening | 28.61871 | 29.31873 | 34.07823 | 85.81541 | 1012.29816 | 26.64035 | 3.34345 | Thursday | 30.00318 | 34.43251 | 94 | 1013 | 26.99002 | 3.6 | 27.95119 | 33.40446 | 83 | 1012 | 25.98001 | 3.09 |
   | ... |
-
-
-
-
+- **Dashboard with Streamlit**:
+  + **Streamlit** is used to create interative dashboard for both **batch** and **real-time** data visualization.
+  + **Near real-time Traffic** & **Weather Monitoring** with automatic updates every 5 seconds.
+  + **Traffic Analysis**: Trend by time of day, day of the week, and location.
+  + **Weather Insights**: Average temperature, humidity, and wind speed by time of day.
+## Getting Started
+- Clone this reposistory:
+  ```bash
+  git clone https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline.git
+  ```
+- Build docker images & run the containers:
+  ```
+  docker-compose up
+  ```
+- The running docker containers will look like this:
+  [picture]
