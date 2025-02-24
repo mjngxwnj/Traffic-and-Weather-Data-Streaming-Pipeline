@@ -240,4 +240,4 @@ Batch: 38
   ```
 - The running docker containers will look like this:
   
-  [docker](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/docker.PNG)
+  ![docker](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/docker.PNG)
