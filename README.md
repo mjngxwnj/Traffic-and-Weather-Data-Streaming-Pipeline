@@ -229,3 +229,8 @@ Batch: 38
   + **Near real-time Traffic** & **Weather Monitoring** with automatic updates every 5 seconds.
   + **Traffic Analysis**: Trend by time of day, day of the week, and location.
   + **Weather Insights**: Average temperature, humidity, and wind speed by time of day.
+## Getting Started
+- Clone this reposistory:
+  ```
+  git clone
+  ```
