@@ -241,3 +241,8 @@ Batch: 38
 - The running docker containers will look like this:
   
   ![docker](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/docker.PNG)
+
+- Next, submit the .cql file in the Cassandra Docker container to create the keyspace and tables:
+  ```
+  docker exec -it cassandra cqlsh -f /cql/keyspace_table.cql
+  ```
