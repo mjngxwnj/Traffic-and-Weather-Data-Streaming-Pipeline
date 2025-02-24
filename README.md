@@ -221,5 +221,5 @@ Batch: 38
 - **Dashboard with Streamlit**:
   + **Streamlit** is used to create interative dashboard for both **batch** and **real-time** data visualization.
   + **Near real-time Traffic** & **Weather Monitoring** with automatic updates every 5 seconds.
-  + Traffic Analysis: Trend by time of day, day of the week, and location.
-  + Weather Insights: Average temperature, humidity, and wind speed by time of day.
+  + **Traffic Analysis**: Trend by time of day, day of the week, and location.
+  + **Weather Insights**: Average temperature, humidity, and wind speed by time of day.
