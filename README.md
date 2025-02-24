@@ -4,6 +4,11 @@
 - [Architecture](#Architecture)
 - [Project Overview](#Project-overview)
   - [Directory Structure](#Directory-Structure)
+  - [Data Sources](#Data-Sources)
+  - [Kafka Integration](#Kafka-Integration)
+  - [Stream Layer](#Stream-Layer)
+  - [Batch Layer](#Stream-Layer)
+  - [Serving Layer](#Stream-Layer)
 ## Introduction
 This project develops a **near real-time streaming pipeline** that processes both **traffic** and **weather data**. The data is streamed through **Kafka** and processed using **Spark** to provide near real-time analysis of traffic flow and weather conditions.
 ## Architecture
