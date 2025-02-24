@@ -123,7 +123,8 @@ This project collects and processes data from the following sources:
   + **temperature, feels_like_temperature, temp_min, temp_max**: Convert from Kelvin (°K) to Celsius (°C).
   + **wind_direction**: Convert wind degree to a categorical feature (e.g., North, South, East, West).
   + **humidex**: Reflects perceived heat, considering temperature and humidity.
-  + **heat_index**: Combines temperature and humidity to indicate heat and **health risks**.  
+  + **heat_index**: Combines temperature and humidity to indicate heat and **health risks**.
+    
 ```stream_traffic_table```:
 ```
 -------------------------------------------
