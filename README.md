@@ -236,7 +236,7 @@ Batch: 38
   git clone https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline.git
   ```
 ### 2. Build & Run Docker Containers
-   Use docker-compose to build and start the containers:
+   Use `docker-compose` to build and start the containers:
   ```
   docker-compose up
   ```
