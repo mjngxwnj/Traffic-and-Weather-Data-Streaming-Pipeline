@@ -244,12 +244,12 @@ Batch: 38
   
   ![docker](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/docker.PNG)
 ### 3. Create Keyspace & Tables in Cassandra
-  Execute the .cql file inside the Cassandra container to create the keyspace and tables:
+  Execute the `.cql` file inside the Cassandra container to create the keyspace and tables:
   ```
   docker exec -it cassandra cqlsh -f /cql/keyspace_table.cql
   ```
 ### 4. Start Kafka Stream
-  Run the kafka_stream.py script to capture traffic images, count vehicles using YOLOv8, and produce data to Kafka:
+  Run the `kafka_stream.py` script to capture traffic images, count vehicles using YOLOv8, and produce data to Kafka:
   ```
   PS D:\Traffic-and-Weather-Data-Streaming-Pipeline> python kafka_stream.py
   0: 320x640 8 persons, 3 cars, 4 motorcycles, 346.5ms
@@ -269,7 +269,7 @@ Batch: 38
   ```
   The number of vehicles in each street will be continuously counted and processed
 ### 6. Schedule Daily Batch Processing
-  To automate batch processing, schedule the run_batch_job.sh script to run daily at 00:00 using crontab:
+  To automate batch processing, schedule the `run_batch_job.sh` script to run daily at `00:00` using crontab:
   ```
   PS D:\Traffic-and-Weather-Data-Streaming-Pipeline> wsl
   root@DESKTOP-0223FUM:/mnt/d/Traffic-and-Weather-Data-Streaming-Pipeline# crontab -e
