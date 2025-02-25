@@ -230,7 +230,7 @@ Batch: 38
   + **Traffic Analysis**: Trend by time of day, day of the week, and location.
   + **Weather Insights**: Average temperature, humidity, and wind speed by time of day.
     
-![dashboard](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/dashboard.PNG)
+  ![dashboard](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/dashboard.PNG)
 ## Getting Started
 ### 1. Clone this Reposistory:
    Clone the project to your local machine:
