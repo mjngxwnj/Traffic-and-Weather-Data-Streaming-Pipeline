@@ -246,3 +246,12 @@ Batch: 38
   ```
   docker exec -it cassandra cqlsh -f /cql/keyspace_table.cql
   ```
+- After creating tables in **Cassandra**, open ```crontab``` to schedule batch processing (run ```run_batch_job.sh``` daily):
+  ```
+  PS D:\Traffic-and-Weather-Data-Streaming-Pipeline> wsl
+  root@DESKTOP-0223FUM:/mnt/d/Traffic-and-Weather-Data-Streaming-Pipeline# crontab -e
+  ```
+  Set the script to run daily at 00:00:
+  ```
+  04 20 * * * /bin/bash /mnt/d/Traffic-and-Weather-Data-Streaming-Pipeline/run_batch_job.sh
+  ```
