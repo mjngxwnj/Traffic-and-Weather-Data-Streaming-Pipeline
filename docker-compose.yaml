@@ -53,6 +53,7 @@ services:
     ports:
       - 7077:7077
       - 8080:8080
+      - 4040:4040
     expose:
       - 7077
     environment:
@@ -64,6 +65,8 @@ services:
       - SPARK_USER=spark
     volumes:
       - ./spark_script:/opt/bitnami/spark/spark_script
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - lytieu_network
 
@@ -85,6 +88,8 @@ services:
       - SPARK_SSL_ENABLED=no
     volumes:
       - ./spark_script:/opt/bitnami/spark/spark_script
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     depends_on:
       - spark-master
     networks:

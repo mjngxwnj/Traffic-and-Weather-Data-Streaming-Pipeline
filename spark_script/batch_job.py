@@ -48,9 +48,7 @@ def load_to_HDFS(df: DataFrame, direct: str):
         raise ValueError("df should be a Spark DataFrame")
     
     HDFS_PATH = f"hdfs://namenode:9000/{direct}"
-    
     print("Writing to HDFS " + HDFS_PATH + " at time " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "...")
-    
     try:
         df.write.mode("append") \
                 .format("parquet") \
@@ -154,41 +152,41 @@ def aggregate_weather_to_Cassandra(spark: SparkSession,
     weather_df.createOrReplaceTempView("weather_table")
     weather_df = spark.sql("""
         SELECT street,
-                SUM(temperature) / COUNT(temperature) as avg_temperature,
-                MAX(temperature) as max_temperature,
-                MIN(temperature) as min_temperature,
-                           
-                SUM(feels_like_temperature) / COUNT(feels_like_temperature) as avg_feels_like_temperature,
-                           
-                SUM(humidity) / COUNT(humidity) as avg_humidity,
-                MAX(humidity) as max_humidity,
-                MIN(humidity) as min_humidity,
-                           
-                SUM(pressure) / COUNT(pressure) as avg_pressure,
-                MAX(pressure) as max_pressure,
-                MIN(pressure) as min_pressure,
-                           
-                SUM(wind_speed) / COUNT(wind_speed) as avg_wind_speed,
-                MAX(wind_speed) as max_wind_speed,
-                MIN(wind_speed) as min_wind_speed,
+                AVG(temperature) AS avg_temperature,
+                MAX(temperature) AS max_temperature,
+                MIN(temperature) AS min_temperature,
                 
-                SUM(humidex) / COUNT(humidex) as avg_humidex,
-                MAX(humidex) as max_humidex,
-                MIN(humidex) as min_humidex,
-                           
-                SUM(heat_index) / COUNT(heat_index) as avg_heat_index,
-                MAX(heat_index) as max_heat_index,
-                MIN(heat_index) as min_heat_index,
-                           
+                AVG(feels_like_temperature) AS avg_feels_like_temperature,
+                
+                AVG(humidity) AS avg_humidity,
+                MAX(humidity) AS max_humidity,
+                MIN(humidity) AS min_humidity,
+                
+                AVG(pressure) AS avg_pressure,
+                MAX(pressure) AS max_pressure,
+                MIN(pressure) AS min_pressure,
+                
+                AVG(wind_speed) AS avg_wind_speed,
+                MAX(wind_speed) AS max_wind_speed,
+                MIN(wind_speed) AS min_wind_speed,
+                
+                AVG(humidex) AS avg_humidex,
+                MAX(humidex) AS max_humidex,
+                MIN(humidex) AS min_humidex,
+                
+                AVG(heat_index) AS avg_heat_index,
+                MAX(heat_index) AS max_heat_index,
+                MIN(heat_index) AS min_heat_index,
+                
                 part_of_day,
                 day_of_week,
                 day,
                 month,
                 year
-                           
+                
         FROM weather_table
-        GROUP BY street, part_of_day, day_of_week, day, month, year
-    """)
+        GROUP BY street, part_of_day, day_of_week, day, month, year;
+        """)
     
     print("Writing to Cassandra at time " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "...")
     
