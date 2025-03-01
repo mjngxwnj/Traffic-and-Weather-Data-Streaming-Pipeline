@@ -9,6 +9,13 @@
   - [Stream Layer](#Stream-Layer)
   - [Batch Layer](#Stream-Layer)
   - [Serving Layer](#Stream-Layer)
+- [Getting Started](#getting-started)
+  - [1. Clone this Repository](#1-clone-this-repository)
+  - [2. Build & Run Docker Containers](#2-build--run-docker-containers)
+  - [3. Create Keyspace & Tables in Cassandra](#3-create-keyspace--tables-in-cassandra)
+  - [4. Start Kafka Stream](#4-start-kafka-stream)
+  - [5. Run Stream Processing](#5-run-stream-processing)
+  - [6. Schedule Daily Batch Processing](#6-schedule-daily-batch-processing)
 ## Introduction
 This project develops a **near real-time streaming pipeline** that processes both **traffic** and **weather data**. The data is streamed through **Kafka** and processed using **Spark** to provide near real-time analysis of traffic flow and weather conditions.
 ## Architecture
