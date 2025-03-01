@@ -10,7 +10,7 @@
   - [Batch Layer](#Stream-Layer)
   - [Serving Layer](#Stream-Layer)
 - [Getting Started](#getting-started)
-  - [1. Clone this Repository](#1-clone-this-repository)
+  - [1. Clone this Reposistory](#1-clone-this-repository)
   - [2. Build & Run Docker Containers](#2-build--run-docker-containers)
   - [3. Create Keyspace & Tables in Cassandra](#3-create-keyspace--tables-in-cassandra)
   - [4. Start Kafka Stream](#4-start-kafka-stream)
@@ -238,7 +238,8 @@ Batch: 38
   + **Weather Insights**: Average temperature, humidity, and wind speed by time of day.
     
   ![dashboard](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/dashboard.PNG)
-## Getting Started
+## Getting Started  
+
 ### 1. Clone this Reposistory:
    Clone the project to your local machine:
   ```bash
