@@ -289,3 +289,6 @@ Batch: 38
   0 0 * * * /bin/bash /mnt/d/Traffic-and-Weather-Data-Streaming-Pipeline/run_batch_job.sh
   ```
   The batch job will run once a day to aggregate data for historical analysis.
+  
+## Application Demo
+![demo](https://github.com/mjngxwnj/Traffic-and-Weather-Data-Streaming-Pipeline/blob/main/images/demo_app.gif)
