@@ -16,6 +16,7 @@
   - [4. Start Kafka Stream](#4-start-kafka-stream)
   - [5. Run Stream Processing](#5-run-stream-processing)
   - [6. Schedule Daily Batch Processing](#6-schedule-daily-batch-processing)
+- [Application Demo](#Application-Demo)
 ## Introduction
 This project develops a **near real-time streaming pipeline** that processes both **traffic** and **weather data**. The data is streamed through **Kafka** and processed using **Spark** to provide near real-time analysis of traffic flow and weather conditions.
 ## Architecture
